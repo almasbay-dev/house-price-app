@@ -4,7 +4,42 @@ import joblib
 
 model = joblib.load("model.joblib")
 
+# ===== Добавляем стеклянный стиль =====
+st.markdown("""
+<style>
+.glass-square {
+    width: 100%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+.stApp {
+    background: linear-gradient(135deg, #667eea 0%, #1a563dff 100%);
+}
+</style>
+""", unsafe_allow_html=True)
+# ========================================
+
 st.title("Предсказание цены дома в Калифорнии (учебный проект)")
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.markdown('<div class="glass-square">🏠</div>', unsafe_allow_html=True)
+with col2:
+    st.markdown('<div class="glass-square">📊</div>', unsafe_allow_html=True)
+with col3:
+    st.markdown('<div class="glass-square">💰</div>', unsafe_allow_html=True)
+with col4:
+    st.markdown('<div class="glass-square">📈</div>', unsafe_allow_html=True)
 
 
 def slider_with_input(label, min_val, max_val, default, step=0.1, key=""):
